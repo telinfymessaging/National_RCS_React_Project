@@ -1,13 +1,14 @@
+'use client';
+
 import React from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import MailIcon from '@mui/icons-material/Mail';
+import InboxIcon from '@mui/icons-material/Inbox';
 import CampaignIcon from '@mui/icons-material/Campaign';
-import TemplateIcon from '@mui/icons-material/LibraryBooks';
 import ReportIcon from '@mui/icons-material/Assessment';
-<<<<<<< Updated upstream
-import CodeIcon from '@mui/icons-material/Code';
-=======
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
@@ -17,31 +18,39 @@ import hamburgermenu from '../../../../public/assets/image/hamburgermenu.svg';
 import Link from 'next/link';
 import union from '../.././../../public/assets/image/Union.png';
 import { Button, useMediaQuery, useTheme } from '@mui/material';
->>>>>>> Stashed changes
 
-const Sidebar: React.FC = () => {
-  const menuItems = [
-    { text: 'Dashboard', icon: <DashboardIcon /> },
-    { text: 'Inbox', icon: <MailIcon /> },
-    { text: 'Campaigns', icon: <CampaignIcon /> },
-    { text: 'Templates', icon: <TemplateIcon /> },
-    { text: 'Reports', icon: <ReportIcon /> },
-    { text: 'Developer API', icon: <CodeIcon /> },
-  ];
+interface SidebarProps {
+  isOpen: boolean;
+  onMenuClick: () => void;
+}
 
+const sidebarTextStyles = {
+  color: '#60576B',
+  fontSize: '18px',
+  fontWeight: 600,
+  lineHeight: 1.88,
+  fontFamily: 'Cairo',
+
+};
+const listItemStyles = {
+  padding:'8px 20px',
+  borderRadius: '15px',
+  '&:hover': {
+    backgroundColor: '#F9EFF8',
+    '& .MuiListItemIcon-root, & .MuiListItemText-root': {
+      color: '#A02695',
+    },
+  },
+  '&.Mui-passHref': {
+    backgroundColor: '#F9EFF8',
+    '& .MuiListItemIcon-root, & .MuiListItemText-root': {
+      color: '#A02695',
+    },
+  },
+};
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
+  const theme = useTheme();
   return (
-<<<<<<< Updated upstream
-    <Drawer variant="permanent" anchor="left">
-      <List>
-        {menuItems.map((item, index) => (
-          <ListItem button key={index}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.text} />
-          </ListItem>
-        ))}
-      </List>
-    </Drawer>
-=======
     <Box
       sx={{
         width: isOpen ? 345 : 0,
@@ -190,7 +199,6 @@ const Sidebar: React.FC = () => {
         </Box>
       )}
     </Box>
->>>>>>> Stashed changes
   );
 };
 

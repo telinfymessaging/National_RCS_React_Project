@@ -21,6 +21,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <div style={{ flexGrow: 1 }}>
         <Navbar onMenuClick={handleMenuClick} isOpen={isSidebarOpen} />
         <main style={{ padding: isSidebarOpen?'46px': '56px', backgroundColor: '#f4f6f8', height: 'auto', transition: 'margin-left  0.5s',marginLeft: isSidebarOpen ? '345px' : '0', }}>
+
           {children}
         </main>
       </div>

@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react'
-=======
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -65,17 +62,8 @@ const Templates: React.FC = () => {
   if (status === 'failed') {
     return <div>Error: {error}</div>;
   }
->>>>>>> Stashed changes
 
-const page = () => {
   return (
-<<<<<<< Updated upstream
-    <div>template</div>
-  )
-}
-
-export default page
-=======
     <Box>
       <Box display="flex" justifyContent="space-between" alignItems="center" mt={4}>
         <Typography variant="h1" sx={{ fontSize: '30px', fontWeight: '700', lineHeight: 1.6, color: '#60576B' }}>
@@ -230,4 +218,3 @@ export default page
 };
 
 export default Templates;
->>>>>>> Stashed changes
