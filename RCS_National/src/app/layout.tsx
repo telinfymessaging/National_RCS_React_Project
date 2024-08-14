@@ -1,3 +1,5 @@
+'use client';
+
   import type { Metadata } from "next";
   import { Inter } from "next/font/google";
   import "./globals.css";
@@ -5,6 +7,8 @@
   import Sidebar from '../app/compoents/sidebar/sidebar';
   import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
   import  googl_logo from "../../public/assets/image/googl-logo.png";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 
   const inter = Inter({ subsets: ["latin"] });
@@ -31,10 +35,12 @@
           />
         </head>
         <body className={inter.className} style={{ margin: "0" }}>
+        <Provider store={store}>
           {/* <Sidebar/> */}
 
           {/* <Navbar /> */}
           {children}
+          </Provider>
         </body>
       </html>
     );
