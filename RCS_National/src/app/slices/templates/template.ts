@@ -37,13 +37,9 @@ const templatesSlice = createSlice({
     },
     fetchTemplatesSuccess(state, action: PayloadAction<Template[]>) {
       state.status = 'succeeded';
-<<<<<<< Updated upstream
-      state.templates = action.payload; // Store the array directly
-=======
       state.templates = action.payload;
       console.log(action.payload,"template action");
        // Store the array directly
->>>>>>> Stashed changes
     },
     fetchTemplatesFailure(state, action: PayloadAction<string>) {
       state.status = 'failed';
@@ -57,13 +53,6 @@ export const { fetchTemplatesStart, fetchTemplatesSuccess, fetchTemplatesFailure
 export const fetchTemplates = () => async (dispatch: AppDispatch) => {
   dispatch(fetchTemplatesStart());
   try {
-<<<<<<< Updated upstream
-    const response = await axios.get<{ message: Template[] }>('api/templates'); // Adjust the endpoint
-    const templatesArray = response.data.message; // Access the nested `message` array
-    console.log(templatesArray,'dsfsfs');
-    
-    dispatch(fetchTemplatesSuccess(templatesArray)); // Dispatch the array to the store
-=======
     const response = await axios.get<{ message: Template[] }>('api/template'); // Adjust the endpoint
     console.log(response);
 
@@ -71,7 +60,6 @@ export const fetchTemplates = () => async (dispatch: AppDispatch) => {
     // Access the nested `message` array
     dispatch(fetchTemplatesSuccess(templatesArray)); // Dispatch the array to the store
     console.log( dispatch(fetchTemplatesSuccess(templatesArray)));
->>>>>>> Stashed changes
   } catch (error: any) {
     dispatch(fetchTemplatesFailure(error.message));
   }

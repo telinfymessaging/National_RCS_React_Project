@@ -1,12 +1,4 @@
 import { combineReducers } from "@reduxjs/toolkit";
-<<<<<<< Updated upstream
-import templatesReducer from '../slices/templates/template';
-
-
-
-export const rootReducer = combineReducers({
-    templates: templatesReducer,
-=======
 import templatesReducer from '../slices/templates/template'; 
 import formReducer from '../slices/add-template/formSlice'; 
 import reportReducer from '../slices/reports/reports';
@@ -19,5 +11,4 @@ export const rootReducer = combineReducers({
     report: reportReducer,
     campaign: campaignReducer,
     campaignReports: campaignReportsReducer,
->>>>>>> Stashed changes
 })

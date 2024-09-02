@@ -20,13 +20,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Sidebar isOpen={isSidebarOpen} onMenuClick={handleMenuClick} />
       <div style={{ flexGrow: 1 }}>
         <Navbar onMenuClick={handleMenuClick} isOpen={isSidebarOpen} />
-<<<<<<< Updated upstream
-        <main style={{ padding: isSidebarOpen?'46px': '56px', backgroundColor: '#f4f6f8', height: 'auto', transition: 'margin-left  0.5s',marginLeft: isSidebarOpen ? '345px' : '0', }}>
-
-=======
         
         <main style={{ padding: isSidebarOpen?'46px': '56px', backgroundColor: '#f4f6f8', height: 'auto', transition: 'margin-left  0.5s',marginLeft: isSidebarOpen ? '345px' : '0', }}>
->>>>>>> Stashed changes
           {children}
         </main>
       </div>
