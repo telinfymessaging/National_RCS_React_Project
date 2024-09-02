@@ -1,5 +1,8 @@
 'use client';
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   import type { Metadata } from "next";
   import { Inter } from "next/font/google";
   import "./globals.css";
@@ -35,7 +38,11 @@ import { store } from "./store";
           />
         </head>
         <body className={inter.className} style={{ margin: "0" }}>
+<<<<<<< Updated upstream
         <Provider store={store}>
+=======
+          <Provider store={store} >
+>>>>>>> Stashed changes
           {/* <Sidebar/> */}
 
           {/* <Navbar /> */}

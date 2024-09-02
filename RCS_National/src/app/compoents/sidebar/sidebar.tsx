@@ -128,8 +128,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
               <ListItemText primary="Templates" sx={sidebarTextStyles}/>
             </ListItem>
             </Link>
+<<<<<<< Updated upstream
             <Link href={'/reports'} style={{textDecoration:'none'}}>
             <ListItem  sx={listItemStyles}>
+=======
+            <Link href={'/campaign-reports'} style={{textDecoration:'none'}}>
+            <ListItem button sx={listItemStyles}>
+>>>>>>> Stashed changes
               <ListItemIcon>
               <svg xmlns="http://www.w3.org/2000/svg" width="28"
                     height="28" viewBox="0 0 28 28" fill="none">
