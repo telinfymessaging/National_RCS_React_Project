@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import TemplateForm from '../../compoents/add-template/TemplateForm';
+import { Typography } from '@mui/material';
+// import Layout from './layout';
 
-const page = () => {
+const Page: React.FC = () => {
   return (
-    <div>add-template</div>
-  )
-}
+    <>
+        <Typography marginBottom="12px" >Templates</Typography>
+      <div>
+        <TemplateForm />
+      </div>
+      </>
+    
+  );
+};
 
-export default page
+export default Page;

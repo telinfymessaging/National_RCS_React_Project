@@ -2,8 +2,8 @@
 "use client";
 import React from 'react'
 import { Box, TextField, Button, Typography } from "@mui/material";
-import telnify_logo from "../../../../../public/assets/image/login-logo.png";
-import bg_image from "../../../../../public/assets/image/login-img.png";
+import telnify_logo from "../../../../public/assets/image/login-logo.png";
+import bg_image from "../../../../public/assets/image/login-img.png";
 
 import Image from "next/image";
 import { styled } from "@mui/material/styles";

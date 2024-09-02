@@ -2,13 +2,12 @@
 
 import { Box, TextField, Button, Typography } from "@mui/material";
 
-import Isolation_Mode from "../../../../public/assets/image/Isolation_Mode.png";
+import Isolation_Mode from "../../../public/assets/image/Isolation_Mode.png";
 import Image from "next/image";
 import Auth_Layout from "./sections/auth_Layout";
 import { ThemeProvider } from "@emotion/react";
-import theme from "../../themes/auth_theme";
+import theme from "../themes/auth_theme";
 import { Metadata } from "next";
-import googl_logo from "../../../../public/assets/image/googl-logo.png";
 
 
 
