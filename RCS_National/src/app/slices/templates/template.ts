@@ -37,7 +37,9 @@ const templatesSlice = createSlice({
     },
     fetchTemplatesSuccess(state, action: PayloadAction<Template[]>) {
       state.status = 'succeeded';
-      state.templates = action.payload; // Store the array directly
+      state.templates = action.payload;
+      console.log(action.payload,"template action");
+       // Store the array directly
     },
     fetchTemplatesFailure(state, action: PayloadAction<string>) {
       state.status = 'failed';
@@ -51,11 +53,13 @@ export const { fetchTemplatesStart, fetchTemplatesSuccess, fetchTemplatesFailure
 export const fetchTemplates = () => async (dispatch: AppDispatch) => {
   dispatch(fetchTemplatesStart());
   try {
-    const response = await axios.get<{ message: Template[] }>('api/templates'); // Adjust the endpoint
-    const templatesArray = response.data.message; // Access the nested `message` array
-    console.log(templatesArray,'dsfsfs');
-    
+    const response = await axios.get<{ message: Template[] }>('api/template'); // Adjust the endpoint
+    console.log(response);
+
+    const templatesArray = response.data.message;
+    // Access the nested `message` array
     dispatch(fetchTemplatesSuccess(templatesArray)); // Dispatch the array to the store
+    console.log( dispatch(fetchTemplatesSuccess(templatesArray)));
   } catch (error: any) {
     dispatch(fetchTemplatesFailure(error.message));
   }

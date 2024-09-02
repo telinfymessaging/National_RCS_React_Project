@@ -17,7 +17,7 @@ import logo from '../../../../public/assets/image/logo.png';
 import hamburgermenu from '../../../../public/assets/image/hamburgermenu.svg';
 import Link from 'next/link';
 import union from '../.././../../public/assets/image/Union.png';
-import { Button, useMediaQuery, useTheme } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -76,9 +76,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
             </Box>
           </Box>
 
-          <List sx={{height :'auto', overflow: 'auto' }}>
+          <List sx={{height :'500px', overflow: 'auto' }}>
             <Link href={'/dashboard'} passHref style={{textDecoration:'none'}}>
-            <ListItem  sx={listItemStyles}>
+            <ListItem button sx={listItemStyles}>
               <ListItemIcon>
               <svg xmlns="http://www.w3.org/2000/svg" width="24"
                     height="21" viewBox="0 0 24 21" fill="none">
@@ -90,7 +90,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
             </ListItem>
             </Link>
             <Link href={'/inbox'} style={{textDecoration:'none'}}>
-            <ListItem  sx={listItemStyles}> 
+            <ListItem button sx={listItemStyles}> 
               <ListItemIcon>
               <svg xmlns="http://www.w3.org/2000/svg" width="20"
                     height="18" viewBox="0 0 20 18" fill="none">
@@ -103,7 +103,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
             </ListItem>
             </Link>
             <Link href={'/campaign'} style={{textDecoration:'none'}}>
-            <ListItem  sx={listItemStyles}>
+            <ListItem button sx={listItemStyles}>
               <ListItemIcon>
               <svg xmlns="http://www.w3.org/2000/svg" width="23"
                     height="22" viewBox="0 0 23 22" fill="none">
@@ -116,7 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
             </ListItem>
             </Link>
             <Link href={'/template'} style={{textDecoration:'none'}}>
-            <ListItem  sx={listItemStyles}>
+            <ListItem button sx={listItemStyles}>
               <ListItemIcon>
               <svg xmlns="http://www.w3.org/2000/svg" width="26"
                     height="18" viewBox="0 0 26 18" fill="none">
@@ -128,8 +128,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
               <ListItemText primary="Templates" sx={sidebarTextStyles}/>
             </ListItem>
             </Link>
-            <Link href={'/reports'} style={{textDecoration:'none'}}>
-            <ListItem  sx={listItemStyles}>
+            <Link href={'/campaign-reports'} style={{textDecoration:'none'}}>
+            <ListItem button sx={listItemStyles}>
               <ListItemIcon>
               <svg xmlns="http://www.w3.org/2000/svg" width="28"
                     height="28" viewBox="0 0 28 28" fill="none">
@@ -148,7 +148,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
             </ListItem>
             </Link>
             <Link href={'/campaign'} style={{textDecoration:'none'}}>
-            <ListItem  sx={listItemStyles}>
+            <ListItem button sx={listItemStyles}>
               <ListItemIcon>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -170,7 +170,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
             sx={{
               background: 'linear-gradient(180deg, rgb(1, 171, 235) 0%, rgb(1, 101, 139) 100%)',
               textAlign: 'center',
-              marginTop:'80px',
+              marginTop:'20px',
               padding:'11% 35% 11% 11%',
               marginBottom:'34%',
               borderRadius:'14px',
@@ -184,7 +184,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
               Need any support from us?
             </Typography>
           <Box display='flex' sx={{justifyContent:'space-between'}}>
-             <Button sx={{ padding: '8px 17px 8px 20px', marginTop: '17px',fontSize:"17px",fontWeight:'700',lineHeight:'1.87',display:"flex",color:'#01A9E9',backgroundColor:"#ffffff",alignItems:'center',justifyContent:'space-between',borderRadius:'18px',border:'none'
+             <button style={{ padding: '8px 17px 8px 20px', marginTop: '17px',fontSize:"17px",fontWeight:'700',lineHeight:'1.87',display:"flex",color:'#01A9E9',backgroundColor:"#ffffff",alignItems:'center',justifyContent:'space-between',borderRadius:'18px',border:'none'
     }}>Reach us
              <svg xmlns="http://www.w3.org/2000/svg" width="8" height="13"
                 viewBox="0 0 8 13" fill="none">
@@ -192,12 +192,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onMenuClick }) => {
                     d="M1.68394 12.4213C1.04528 13.0201 -6.26294e-08 12.5672 -1.00896e-07 11.6918L-5.54775e-07 1.30823C-5.93042e-07 0.432792 1.04527 -0.0200549 1.68394 0.578694L7.22183 5.77046C7.64324 6.16554 7.64324 6.83446 7.22183 7.22954L1.68394 12.4213Z"
                     fill="#1CBBFF" />
             </svg>
-            </Button>
+            </button>
           </Box>
           </Box>
-          <p>All Rights Reserved&#64;Telinfy 2024</p>
         </Box>
       )}
+      <p>All Rights Reserved&#64;Telinfy 2024</p>
     </Box>
   );
 };

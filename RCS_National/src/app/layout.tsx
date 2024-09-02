@@ -1,5 +1,4 @@
 'use client';
-
   import type { Metadata } from "next";
   import { Inter } from "next/font/google";
   import "./globals.css";
@@ -35,7 +34,7 @@ import { store } from "./store";
           />
         </head>
         <body className={inter.className} style={{ margin: "0" }}>
-        <Provider store={store}>
+          <Provider store={store} >
           {/* <Sidebar/> */}
 
           {/* <Navbar /> */}
