@@ -1,16 +1,13 @@
-
 "use client";
 import { Cairo } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 import { pink } from "@mui/material/colors";
-
 // Load the Cairo font
 const cairo = Cairo({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
 });
-
 // Create a Material-UI theme with the Cairo font
 const theme = createTheme({
   typography: {
@@ -25,5 +22,4 @@ const theme = createTheme({
     },
   },
 });
-
 export default theme;

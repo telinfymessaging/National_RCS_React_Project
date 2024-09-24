@@ -1,17 +1,7 @@
-"use client"
-
-import { Box, TextField, Button, Typography } from "@mui/material";
-
+import { Box} from "@mui/material";
 import Isolation_Mode from "../../../public/assets/image/Isolation_Mode.png";
 import Image from "next/image";
 import Auth_Layout from "./sections/auth_Layout";
-import { ThemeProvider } from "@emotion/react";
-import theme from "../themes/auth_theme";
-import { Metadata } from "next";
-
-
-
-
 export default function LoginLayout({
   children,
 }: {
@@ -25,7 +15,7 @@ export default function LoginLayout({
           flex="1 1 auto"
           flexDirection={{ xs: "column", md: "row" }}
           height="100vh"
-          bgcolor="#f9f9f9"
+          bgcolor="#F9F9F9"
         >
           <Image
             src={Isolation_Mode}
@@ -41,14 +31,16 @@ export default function LoginLayout({
               overflow: "clip"
             }}
           />
-
-            <ThemeProvider theme={theme} >
             <Auth_Layout />
-
             {children}
-        </ThemeProvider> 
         </Box>
       </body>
     </html>
   );
 }
+
+
+
+
+
+

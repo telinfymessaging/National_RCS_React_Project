@@ -15,7 +15,7 @@ import profile_img from '../../../../public/assets/image/profile-image.png';
 import logo from '../../../../public/assets/image/logo.png';
 import hamburgermenu from '../../../../public/assets/image/hamburgermenu.svg';
 import { useRouter } from 'next/navigation';
-import { deleteCookie as Logout } from "../../actions/mutateCookie";
+import { deleteCookie as Logout } from "../../server/actions/mutateCookie";
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -108,6 +108,9 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick, isOpen }) => {
     
 
   },[])
+  const handleDownload = () => {
+    router.push('/download');
+  };
 
   return (
     <AppBar position="static" sx={{ backgroundColor: '#ffffff', padding: '26px 46px', color: 'black', zIndex: 1201 }}>
@@ -136,9 +139,9 @@ const Navbar: React.FC<NavbarProps> = ({ onMenuClick, isOpen }) => {
         </Box>
 
         <Box display="flex" alignItems="center">
-          <IconButton color="inherit">
+          <IconButton  onClick={handleDownload}>
             <Badge badgeContent={12} color="secondary">
-              <DownloadForOfflineIcon />
+              <DownloadForOfflineIcon fontSize="large" sx={{color:"#A5A5A5 "}}/>
             </Badge>
           </IconButton>
           <IconButton>

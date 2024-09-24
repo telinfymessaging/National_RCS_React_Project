@@ -1,20 +1,8 @@
-'use client';
-
-  import type { Metadata } from "next";
-  import { Inter } from "next/font/google";
-  import "./globals.css";
-  import Navbar from '../app/compoents/navbar/navbar';
-  import Sidebar from '../app/compoents/sidebar/sidebar';
-  import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-  import  googl_logo from "../../public/assets/image/googl-logo.png";
-import { Provider } from "react-redux";
-import { store } from "./store";
-
-
+import { Inter } from "next/font/google";
+import "./globals.css";
+import StoreProvider from "./store/storeProvider";
+import ThemeLayout from "./themes/ThemeLayout";
   const inter = Inter({ subsets: ["latin"] });
-
- 
-
   export default function RootLayout({
     children,
   }: Readonly<{
@@ -35,12 +23,9 @@ import { store } from "./store";
           />
         </head>
         <body className={inter.className} style={{ margin: "0" }}>
-        <Provider store={store}>
-          {/* <Sidebar/> */}
-
-          {/* <Navbar /> */}
-          {children}
-          </Provider>
+          <StoreProvider>
+            <ThemeLayout>{children}</ThemeLayout>
+          </StoreProvider>
         </body>
       </html>
     );

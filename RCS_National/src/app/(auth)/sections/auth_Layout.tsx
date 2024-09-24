@@ -1,29 +1,9 @@
-
-"use client";
 import React from 'react'
 import { Box, TextField, Button, Typography } from "@mui/material";
 import telnify_logo from "../../../../public/assets/image/login-logo.png";
 import bg_image from "../../../../public/assets/image/login-img.png";
-
 import Image from "next/image";
-import { styled } from "@mui/material/styles";
 import Link from 'next/link';
-
-
-const PinkText = styled("span")(({ theme }) => ({
-  color: theme.palette.primary.main,
-    fontWeight: "bold",
-    fontSize:"38px"
-}));
-
-const BlackText = styled("span")(({ theme }) => ({
-  color: theme.palette.text.primary,
-    fontWeight: "bold",
-    fontSize:"38px"
-}));
-
-
-
 function Auth_Layout() {
   return (
     <Box
@@ -34,10 +14,8 @@ function Auth_Layout() {
       boxShadow={0}
       borderRadius={2}
       ml={13}
-      
       width="50%"
       height={"100%"}
-      
     >
       <Box display="flex" width={"100%"} height="auto">
         <Image
@@ -51,7 +29,6 @@ function Auth_Layout() {
           }}
         />
       </Box>
-
       <Box display="flex-col" alignItems="end" justifyContent={"end"}>
         <Image
           src={bg_image}
@@ -78,18 +55,15 @@ function Auth_Layout() {
           </Typography>
           <Box display="flex">
             <Typography variant="h4">
-              <PinkText>RCS</PinkText>{" "}
-              <BlackText>Business Messaging.</BlackText>
+              RCS Business Messaging
             </Typography>
           </Box>
-
           <Link href="/register">
             <Button
               variant="outlined"
               color="primary"
               style={{
                 marginTop: "25px",
-
                 fontSize: "20px",
                 fontWeight: "bold",
                 width: "270px",
@@ -107,5 +81,4 @@ function Auth_Layout() {
     </Box>
   );
 }
-
 export default Auth_Layout

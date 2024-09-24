@@ -1,6 +1,7 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { AppDispatch } from '../../store';
+import { GET_USER_RCS_TEMPLETS } from '@/app/constants/URLConstants';
 
 export interface Template {
   tid: number;
@@ -20,45 +21,69 @@ interface TemplatesState {
   templates: Template[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
+  inputString: string;
+  page: number;
+  rowsPerPage: number;
+  filterStatus: string;  // Added filter status
 }
 
 const initialState: TemplatesState = {
-  templates: [], // Start with an empty array
+  templates: [],
   status: 'idle',
   error: null,
+  inputString: '',
+  page: 0,
+  rowsPerPage: 10,
+  filterStatus: '', // Default: show all
 };
+
+// Define the async thunk
+export const fetchTemplates = createAsyncThunk('templates/fetchTemplates', async (_, { rejectWithValue }) => {
+  try {
+    const response = await axios.get<{ message: Template[] }>(GET_USER_RCS_TEMPLETS, {
+      headers: {
+         'token_RCS':localStorage.getItem("RCS_token")
+      }
+    });
+    return response.data.message;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
 
 const templatesSlice = createSlice({
   name: 'templates',
   initialState,
   reducers: {
-    fetchTemplatesStart(state) {
-      state.status = 'loading';
+    setInputString(state, action: PayloadAction<string>) {
+      state.inputString = action.payload;
     },
-    fetchTemplatesSuccess(state, action: PayloadAction<Template[]>) {
-      state.status = 'succeeded';
-      state.templates = action.payload; // Store the array directly
+    setPage(state, action: PayloadAction<number>) {
+      state.page = action.payload;
     },
-    fetchTemplatesFailure(state, action: PayloadAction<string>) {
-      state.status = 'failed';
-      state.error = action.payload;
+    setRowsPerPage(state, action: PayloadAction<number>) {
+      state.rowsPerPage = action.payload;
     },
+    setFilterStatus(state, action: PayloadAction<string>) {
+      state.filterStatus = action.payload; // Set the filter status
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchTemplates.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchTemplates.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.templates = action.payload;
+      })
+      .addCase(fetchTemplates.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload as string;
+      });
   },
 });
 
-export const { fetchTemplatesStart, fetchTemplatesSuccess, fetchTemplatesFailure } = templatesSlice.actions;
-
-export const fetchTemplates = () => async (dispatch: AppDispatch) => {
-  dispatch(fetchTemplatesStart());
-  try {
-    const response = await axios.get<{ message: Template[] }>('api/templates'); // Adjust the endpoint
-    const templatesArray = response.data.message; // Access the nested `message` array
-    console.log(templatesArray,'dsfsfs');
-    
-    dispatch(fetchTemplatesSuccess(templatesArray)); // Dispatch the array to the store
-  } catch (error: any) {
-    dispatch(fetchTemplatesFailure(error.message));
-  }
-};
+export const { setInputString, setPage, setRowsPerPage, setFilterStatus } = templatesSlice.actions;
 
 export default templatesSlice.reducer;
